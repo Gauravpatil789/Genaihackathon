@@ -16,7 +16,9 @@ def get_maps_mcp_toolset():
             url=MAPS_MCP_URL,
             headers={    
                 "X-Goog-Api-Key": maps_api_key
-            }
+            },
+            timeout=30.0,          
+            sse_read_timeout=300.0
         )
     )
     print("MCP Toolset configured for Streamable HTTP connection.")
@@ -40,7 +42,9 @@ def get_bigquery_mcp_toolset():
     tools = MCPToolset(
         connection_params=StreamableHTTPConnectionParams(
             url=BIGQUERY_MCP_URL,
-            headers=HEADERS_WITH_OAUTH
+            headers=HEADERS_WITH_OAUTH,
+            timeout=30.0,          
+            sse_read_timeout=300.0
         )
     )
     print("MCP Toolset configured for Streamable HTTP connection.")
