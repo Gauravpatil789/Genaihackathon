@@ -17,13 +17,14 @@ root_agent = LlmAgent(
 Help the user answer questions by strategically combining insights from two sources:
 
 1. **BigQuery toolset:** 
-Access fuel price and related data in the dataset `{PROJECT_ID}.fuel_dataset`. 
+Access petrol and diesel price data stored in the `petrol` dataset.
+Use tables like fuel_prices, fuel_trends, fuel_consumption, and fuel_tax.
 Do not use any other dataset.
 Run all query jobs from project id: {PROJECT_ID}.
 
 2. **Maps Toolset:** 
-Use this for real-world location analysis, finding cities and nearby fuel stations.
-Use it to compare fuel prices geographically and calculate travel routes.
+Use this for real-world location analysis, finding cities, nearby fuel stations,
+and calculating travel routes between locations.
 Include a hyperlink to an interactive map in your response where appropriate.
 """,
     tools=[maps_toolset, bigquery_toolset]
